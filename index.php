@@ -15,10 +15,32 @@
 
 <div id="app"class="container"> 
 
-	<h2>{{hello}}</h2>
-	<h2>{{title}}</h2>
-	<input  v-model="hello"  />
-	<input  v-model="title"  />
+
+
+	<div class="row">
+
+<div class="col-md-4">
+
+	<form>
+  <div class="form-group">
+    <label >Name:</label>
+    <input type="text"v-model="students.name" class="form-control" >
+    
+  </div>
+  <div class="form-group">
+    <label>Address:</label>
+    <input type="text" v-model="students.address"class="form-control"  >
+  </div>
+ 
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form> 
+
+
+
+	</div> 
+		<div class="col-md-8">
+
+
 
 	<table class="table table-striped"> 
 
@@ -41,9 +63,20 @@
 
 
 	</table>
+</div>
+
+</div>
+
+<div class="row"> 
+
+	<div class="col-md-12">
+
+		<pre>{{$data | JSON}}</pre>
+
+	</div>
 
 
-
+</div>
 
 </div>
 
@@ -60,17 +93,15 @@ new Vue({
 
  data:{
 
- 	hello:"Hello world",
- 	title:"my bro",
- 	students:[
-{id:1,name:"Aung Aung",address:"Insein"},
-{id:2,name:"Mg Mg",address:"Insein"},
-{id:3,name:"Kyaw Kyaw",address:"Insein"},
-{id:4,name:"Zin Zin",address:"Insein"}
+ 	
+ 	students:{name:"",address:""},
+
+ 	allstudents:[]
 
 
 
- 	]
+
+ 	
  }
 
 
