@@ -32,7 +32,7 @@
     <input type="text" v-model="students.address"class="form-control"  >
   </div>
  
-  <button type="submit" class="btn btn-primary">Submit</button>
+  <button type="submit" class="btn btn-primary"v-on:click="addstudents">Submit</button>
 </form> 
 
 
@@ -43,24 +43,27 @@
 
 
 	<table class="table table-striped"> 
-
+<thead>
 		<tr> 
 
-           <th>Id</th>
+           
            <th>Name</th>
            <th>Address</th>
+           <th>Action</th>
+
+		</tr>
+</thead>
+
+<tbody>
+		<tr v-for="student in allstudents"> 
+         <td>{{student.name}}</td>
+           <td>{{student.address}}</td>
+              <td> <button class="badge badge-danger">delete</button></td>
+
 
 		</tr>
 
-		<tr v-for="students"> 
-         <td> {{student.id}}</td>
-           <td> {{student.name}}</td>
-             <td> {{student.address}}</td>
-
-
-		</tr>
-
-
+</tbody>
 
 	</table>
 </div>
@@ -69,7 +72,7 @@
 
 <div class="row"> 
 
-	<div class="col-md-12">
+	<div class="col-md-12"style="background-color:#FAF7F7;">
 
 		<pre>{{$data | JSON}}</pre>
 
@@ -94,14 +97,31 @@ new Vue({
  data:{
 
  	
- 	students:{name:"",address:""},
+ 	students:{names:"",address:""},
 
  	allstudents:[]
 
+ },
+
+ methods:{
+
+ 	addstudents:function(){
+
+var name=this.students.names.trim();
+var address=this.students.address.trim();
+if(name && address){
+
+	this.allstudents.push({names:name,address:address});
+
+	this.students= {names:"",address:""};
 
 
 
- 	
+}
+
+ 	}
+
+
  }
 
 
