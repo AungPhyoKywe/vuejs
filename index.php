@@ -52,7 +52,7 @@
 
 		</tr>
 
-		<tr v-for="student in students"> 
+		<tr v-for="students"> 
          <td> {{student.id}}</td>
            <td> {{student.name}}</td>
              <td> {{student.address}}</td>
